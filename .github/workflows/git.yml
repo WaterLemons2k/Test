@@ -3,7 +3,7 @@ name: Git
 on:
   push:
     paths:
-      - '.github/workflows/git-auto-commit.yml'
+      - '.github/workflows/git.yml'
       
 jobs:
   git:
@@ -14,7 +14,7 @@ jobs:
       
       - name: Create DATE file
         run: |
-          echo $(date +%F) > DATE
+          echo $(date) > DATE
           
       - name: Git auto commit
         id: git
