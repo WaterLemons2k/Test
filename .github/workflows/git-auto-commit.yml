@@ -14,9 +14,10 @@ jobs:
       
       - name: Create DATE file
         run: |
-          echo $(date +%F) > DATE
+          echo $(date) > DATE
           
       - name: Commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Add DATE
+          commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
