@@ -3,7 +3,7 @@ name: Keepalive Workflow
 on:
   push:
     paths:
-    - '.github/workflows/keepalive-workflow.yml'
+      - '.github/workflows/keepalive-workflow.yml'
   
 jobs:
   workflow:
