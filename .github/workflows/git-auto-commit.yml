@@ -1,0 +1,22 @@
+name: Git auto commit
+
+on:
+  push:
+    paths:
+      - '.github/workflows/git-auto-commit.yml'
+      
+jobs:
+  git:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/Checkout@v3
+      
+      - name: Create DATE file
+        run: |
+          echo $(date +%F) > DATE
+          
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Add DATE
