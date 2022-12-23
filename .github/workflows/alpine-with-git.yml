@@ -12,8 +12,9 @@ jobs:
     steps:
       - name: Prepare
         run: |
-          echo $(cat /etc/alpine-release) > Alpine
           apk add bash git
+          git config --global --add safe.directory .
+          echo $(cat /etc/alpine-release) > Alpine
 
       - name: Checkout
         uses: actions/checkout@v3
