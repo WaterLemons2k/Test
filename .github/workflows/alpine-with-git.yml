@@ -16,7 +16,7 @@ jobs:
       - name: Prepare
         run: |
           echo $(cat /etc/alpine-release) > Alpine
-          apk add git
+          apk add bash git
 
       - name: Git
         uses: stefanzweifel/git-auto-commit-action@v4
