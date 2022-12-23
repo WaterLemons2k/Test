@@ -14,12 +14,14 @@ jobs:
         run: |
           echo $(cat /etc/alpine-release) > Alpine
         
-      - uses: actions/upload-artifact@v3
+      - name: Upload artifact  
+        uses: actions/upload-artifact@v3
         with:
           name: Alpine
           path: Alpine
   
   git:
+    needs: alpine
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
