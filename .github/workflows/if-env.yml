@@ -1,0 +1,15 @@
+name: If env
+
+on:
+  push:
+  
+env:
+  FOO: BAR
+  
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo env
+        if: ${{ env.FOO }}
+        run: echo ${{ env.FOO }}
