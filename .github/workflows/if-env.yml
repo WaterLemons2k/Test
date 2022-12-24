@@ -2,10 +2,9 @@ name: If env
 
 on:
   push:
-  
-env:
-  FOO: BAR
-  
+    paths:
+      - '.github/workflows/if-env.yml'
+      
 jobs:
   echo:
     runs-on: ubuntu-latest
