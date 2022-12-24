@@ -5,10 +5,14 @@ on:
     paths:
       - '.github/workflows/if-env.yml'
       
+#设置变量 FOO
+env:
+  FOO: true
+      
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
       - name: echo env
-        if: ${{ env.FOO }}
-        run: echo ${{ env.FOO }}
+        if: ${{ env.FOO }} #如果存在变量 FOO
+        run: echo ${{ env.FOO }} #输出变量 FOO 的值
