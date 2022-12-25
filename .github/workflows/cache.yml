@@ -9,8 +9,7 @@ jobs:
   cache:
     runs-on: ubuntu-latest
     steps:
-      - name: Prepare
-        run: touch .cache
+      - run: touch .cache
         
       - name: Cache
         uses: actions/cache@v3
