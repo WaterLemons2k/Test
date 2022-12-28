@@ -9,10 +9,10 @@ jobs:
   cache:
     runs-on: ubuntu-latest
     steps:
-      - run: touch .cache
+      - run: touch ~/.cache
         
       - name: Cache
         uses: actions/cache@v3
         with:
-          path: .cache
+          path: ~/.cache
           key: Cache
