@@ -2,10 +2,12 @@ name: Git
 
 on:
   push:
-    paths:
-      - '.github/workflows/git.yml'
+    branches:
+      - 'main'
     tags-ignore:
       - '**'
+    paths:
+      - '.github/workflows/git.yml'
       
 jobs:
   git:
