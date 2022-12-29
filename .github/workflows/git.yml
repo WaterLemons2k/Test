@@ -5,7 +5,7 @@ on:
     paths:
       - '.github/workflows/git.yml'
     tags-ignore:
-      - '*'
+      - '**'
       
 jobs:
   git:
