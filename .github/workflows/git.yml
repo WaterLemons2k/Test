@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/git.yml'
+    tags-ignore:
+      - '*'
       
 jobs:
   git:
@@ -14,7 +16,7 @@ jobs:
       
       - name: Create DATE file
         run: |
-          echo $(date) > DATE
+          echo $(date +%F) > DATE
           
       - name: Git auto commit
         id: git
