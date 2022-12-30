@@ -3,9 +3,9 @@ name: Git
 on:
   push:
     branches:
-      - 'main'
-    tags-ignore:
-      - '**'
+      - "**"
+    tags:
+      - "!**"
     paths:
       - '.github/workflows/git.yml'
       
