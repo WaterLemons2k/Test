@@ -1,0 +1,33 @@
+name: Alpine and artifact
+
+on:
+  push:
+    paths:
+      - '.github/workflows/alpine-and-artifact.yml'
+  
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    container: alpine
+    steps:
+      - name: Create Alpine
+        run: echo $(cat /etc/alpine-release) > Alpine
+        
+      - name: Upload artifact  
+        uses: actions/upload-artifact@v3
+        with:
+          name: Alpine
+          path: Alpine
+  
+  download:
+    needs: upload
+    runs-on: ubuntu-latest
+    container: alpine
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: Alpine
+    
+      - name: View Alpine
+        run: cat Alpine
