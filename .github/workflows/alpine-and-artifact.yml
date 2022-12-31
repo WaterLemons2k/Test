@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     container: alpine
     steps:
-      - name: Create Alpine
-        run: echo $(cat /etc/alpine-release) > Alpine
+      - name: Copy alpine-release
+        run: cp /etc/alpine-release ~/alpine-release
         
-      - name: Upload artifact  
+      - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Alpine
-          path: Alpine
+          name: alpine-release
+          path: ~/alpine-release
   
   download:
     needs: upload
@@ -27,7 +27,8 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: Alpine
+          name: alpine-release
+          path: ~/alpine-release
     
-      - name: View Alpine
-        run: cat Alpine
+      - name: View alpine-release
+        run: cat ~/alpine-release
