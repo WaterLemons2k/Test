@@ -1,0 +1,16 @@
+name: Summary
+
+on:
+  push:
+    paths:
+      - '.github/workflows/summary.yml'
+
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add summary
+        run: |
+          echo "# Summary" >> $GITHUB_STEP_SUMMARY
+          echo "Date: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "PWD: $PWD" >> $GITHUB_STEP_SUMMARY
