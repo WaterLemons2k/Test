@@ -9,6 +9,9 @@ jobs:
   gh:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/Checkout@v3
+        
       - name: Run workflow
         run: gh workflow run "workflow_dispatch"
         env:
