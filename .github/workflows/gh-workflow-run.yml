@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/Checkout@v3
         
-      - name: Run workflow
+      - name: Run workflow using GitHub CLI
         run: gh workflow run "workflow_dispatch"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

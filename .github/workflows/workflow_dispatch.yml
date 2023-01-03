@@ -7,5 +7,4 @@ jobs:
   workflow_dispatch:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        run: echo Trigger workflow via workflow_dispatch
+      - run: echo Trigger workflow via workflow_dispatch at $(date)
