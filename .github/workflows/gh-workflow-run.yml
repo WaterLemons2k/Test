@@ -1,0 +1,13 @@
+name: gh workflow run
+
+on:
+  push:
+    paths:
+      - '.github/workflows/gh-workflow-run.yml'
+
+jobs:
+  gh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run workflow
+        run: gh workflow run "workflow_dispatch"
