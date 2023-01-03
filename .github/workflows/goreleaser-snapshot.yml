@@ -34,5 +34,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: goreleaser-snapshot
-          path: qrcode/dist
+          name: go-qrcode
+          path: qrcode/dist/*.tar.gz
