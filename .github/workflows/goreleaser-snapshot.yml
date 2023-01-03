@@ -1,0 +1,38 @@
+name: GoReleaser snapshot
+
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "!**"
+    paths:
+      - '.github/workflows/goreleaser-snapshot.yml'
+      
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: skip2/go-qrcode
+          
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v4
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --snapshot
+          workdir: qrcode
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: goreleaser-snapshot
+          path: dist
