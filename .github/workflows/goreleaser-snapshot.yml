@@ -31,10 +31,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - run: pwd && ls
-          
-#      - name: Upload artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: goreleaser-snapshot
-#          path: dist
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: goreleaser-snapshot
+          path: qrcode/dist
