@@ -13,23 +13,23 @@ jobs:
   git:
     runs-on: ubuntu-latest
     steps:
-      - id: Checkout
+      - name: Checkout
         uses: actions/Checkout@v3
       
-      - id: Create-PWD
-        run: |
-          echo $PWD > PWD
+      - name: Create PWD
+        run: echo $PWD > PWD
           
-      - id: git
+      - name: Git
+        id: git
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "feat: add PWD"
           commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
-      - id: Keepalive-Workflow
+      - name: Keepalive Workflow
         if: steps.git.outputs.changes_detected == 'false'
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
-          commit_message: Empty commit to keep cron active
+          commit_message: "chore: empty commit to keep cron active"
           committer_username: github-actions[bot]
           committer_email: 41898282+github-actions[bot]@users.noreply.github.com
