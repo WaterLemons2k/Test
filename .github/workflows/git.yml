@@ -13,21 +13,20 @@ jobs:
   git:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - id: Checkout
         uses: actions/Checkout@v3
       
-      - name: Create PWD
+      - id: Create PWD
         run: |
           echo $PWD > PWD
           
-      - name: Git auto commit
-        id: git
+      - id: git
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "feat: add PWD"
           commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
-      - name: Keepalive Workflow
+      - id: Keepalive Workflow
         if: steps.git.outputs.changes_detected == 'false'
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
