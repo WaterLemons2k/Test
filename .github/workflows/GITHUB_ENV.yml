@@ -16,7 +16,8 @@ jobs:
         run: echo ${{ env.foo }}
         
   use:
+    needs: set
     runs-on: ubuntu-latest
-     steps:
+    steps:
       - name: Use ENV
         run: echo ${{ env.foo }}
