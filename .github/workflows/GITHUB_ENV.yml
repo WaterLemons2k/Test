@@ -1,0 +1,22 @@
+name: GITHUB_ENV
+
+on:
+  push:
+    paths:
+      - '.github/workflows/GITHUB_ENV.yml'
+      
+jobs:
+  set:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set ENV
+        run: echo "foo=bar" >> $GITHUB_ENV
+        
+      - name: Use ENV
+        run: echo ${{ env.foo }}
+        
+  use:
+    runs-on: ubuntu-latest
+     steps:
+      - name: Use ENV
+        run: echo ${{ env.foo }}
