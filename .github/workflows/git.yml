@@ -16,7 +16,7 @@ jobs:
       - id: Checkout
         uses: actions/Checkout@v3
       
-      - id: Create PWD
+      - id: Create-PWD
         run: |
           echo $PWD > PWD
           
@@ -26,7 +26,7 @@ jobs:
           commit_message: "feat: add PWD"
           commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
-      - id: Keepalive Workflow
+      - id: Keepalive-Workflow
         if: steps.git.outputs.changes_detected == 'false'
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
