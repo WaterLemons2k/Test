@@ -15,6 +15,7 @@ jobs:
       - name: Keepalive Workflow
         uses: gautamkrishnar/keepalive-workflow@v1
         with:
-          commit_message: Empty commit to keep cron active
+          commit_message: "chore: empty commit to keep cron active"
           committer_username: github-actions[bot]
           committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          time_elapsed: 0
