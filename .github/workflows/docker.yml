@@ -32,7 +32,7 @@ jobs:
         with:
           context: .
           platforms: amd64,arm,arm64
-          tags: ${{ env.NAME }}
+          tags: waterlemons2k/ttnode:latest
           
       - run: docker images
           
