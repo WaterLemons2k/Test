@@ -1,0 +1,4 @@
+FROM scratch
+ARG TARGETARCH
+COPY $TARGETARCH/hello /
+ENTRYPOINT ["/hello"]
