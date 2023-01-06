@@ -1,0 +1,38 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "!**"
+    paths:
+      - '.github/workflows/docker.yml'
+      
+env:
+  NAME: ttnode #镜像名称
+      
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: WaterLemons2k/Docker-${{ env.NAME }}
+          
+      - name: Build and push Docker Image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: amd64,arm,arm64
+          tags: ${{ env.NAME }}
+          
+      - name: Save Docker Image
+        run: docker save ${{ env.NAME }} > ${{ env.NAME }}.tar
+        
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.NAME }}
+          path: ${{ env.NAME }}.tar
