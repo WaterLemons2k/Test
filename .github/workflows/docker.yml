@@ -34,11 +34,13 @@ jobs:
           platforms: amd64,arm,arm64
           tags: ${{ env.NAME }}
           
-      - name: Save Docker Image
-        run: docker save ${{ env.NAME }} > ${{ env.NAME }}.tar
+      - run: docker images
+          
+#      - name: Save Docker Image
+#        run: docker save ${{ env.NAME }} > ${{ env.NAME }}.tar
         
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ${{ env.NAME }}
-          path: ${{ env.NAME }}.tar
+#      - name: Upload artifact
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: ${{ env.NAME }}
+#          path: ${{ env.NAME }}.tar
