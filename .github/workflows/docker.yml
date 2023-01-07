@@ -8,6 +8,7 @@ on:
       - "!**"
     paths:
       - '.github/workflows/docker.yml'
+      - 'Docker/**'
       
 env:
   NAME: hello-world #镜像名称
