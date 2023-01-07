@@ -3,15 +3,17 @@ name: env value test
 on:
   push:
     paths:
-      - '.github/workflows/env-value-test.yml`
+      - '.github/workflows/env-value-test.yml'
       
 env:
-FOO: "bar test"
+  FOO: "bar test"
       
 jobs:
   env:
-    - name: for loop
-      run: |
-        for i in $FOO; do
-          echo $i
-        done
+    runs-on: ubuntu-latest
+    steps:
+      - name: for loop
+        run: |
+          for i in $FOO; do
+            echo $i
+          done
