@@ -1,5 +1,5 @@
 FROM scratch
 ARG TARGETARCH
 COPY $TARGETARCH /
-RUN /hello
+RUN ["/hello"]
 ENTRYPOINT ["/hello"]
