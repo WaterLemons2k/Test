@@ -1,0 +1,17 @@
+name: env value test
+
+on:
+  push:
+    paths:
+      - '.github/workflows/env-value-test.yml`
+      
+env:
+FOO: "bar test"
+      
+jobs:
+  env:
+    - name: for loop
+      run: |
+        for i in $FOO; do
+          echo $i
+        done
