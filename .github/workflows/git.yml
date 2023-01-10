@@ -16,14 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/Checkout@v3
       
-      - name: Create PWD
-        run: echo $PWD > PWD
+      - name: Create DATE file
+        run: date '+%F %X' > DATE
           
       - name: Git
         id: git
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "feat: add PWD"
+          commit_message: "feat: add DATE"
           commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 
       - name: Keepalive Workflow
